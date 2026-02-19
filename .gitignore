@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+
+# Build and Output
+dist/
+build/
+web-build/
+.expo/
+cdk.out/
+dist/
+
+# Logs and Debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+
+# IDE and OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+
+# Mobile (React Native / Expo)
+GymBookingApp/ios/
+GymBookingApp/android/
+GymBookingApp/expo-env.d.ts
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Infrastructure (CDK)
+# Ignore compiled JS and declaration files in infra, but keep source TS
+infra/**/*.js
+infra/**/*.d.ts
+
+# TypeScript
+*.tsbuildinfo
