@@ -1,16 +1,9 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
-import awsLambdaFastify from 'aws-lambda-fastify';
 import { GymRepository } from './repository/gym.repository.js';
-import addFormats from 'ajv-formats';
 
 const fastify = Fastify({
   logger: true,
-  ajv: {
-    plugins: [
-      (ajv: any) => addFormats(ajv)
-    ]
-  }
 });
 
 const repo = new GymRepository();
@@ -87,14 +80,4 @@ const start = async () => {
   }
 };
 
-// Export handler for AWS Lambda
-export const handler = async (event: any, context: any) => {
-  await setupServer();
-  const proxy = awsLambdaFastify(fastify);
-  return proxy(event, context);
-};
-
-// Only listen on port if not running in Lambda
-if (process.env.NODE_ENV !== 'production' && !process.env.LAMBDA_TASK_ROOT) {
-  start();
-}
+ start();
